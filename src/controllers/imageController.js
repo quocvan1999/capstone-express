@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import { PrismaClient } from "@prisma/client";
 import fs from "fs";
 import path from "path";
+import { verifyInfoToken } from "../config/jwt.js";
 
 dotenv.config();
 const prisma = new PrismaClient();
@@ -192,6 +193,7 @@ export const createComment = async (req, res) => {
 // /xoa-anh-theo-id/:id
 export const deleteImageById = async (req, res) => {
   const { id } = req.params;
+  const { token } = req.headers;
 
   const checkImage = await prisma.hinh_anh.findUnique({
     where: {
@@ -203,6 +205,25 @@ export const deleteImageById = async (req, res) => {
     return res.status(404).json({
       message: "Hình ảnh không tồn tại",
       statusCode: 404,
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  if (!token) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
+  const infoData = verifyInfoToken(token);
+  let isUser = true;
+
+  if (Number(infoData.payload.userId) !== Number(checkImage.nguoi_dung_id)) {
+    isUser = false;
+  }
+
+  if (!isUser) {
+    return res.status(403).json({
+      message: "Không có quyền xoá hình ảnh",
+      statusCode: 403,
       timestamp: new Date().toISOString(),
     });
   }

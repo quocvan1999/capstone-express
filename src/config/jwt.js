@@ -26,6 +26,15 @@ export const verifyToken = (token) => {
   }
 };
 
+export const verifyInfoToken = (token) => {
+  try {
+    const decoded = jwt.verify(token, process.env.SECRET_KEY);
+    return decoded;
+  } catch (error) {
+    return null;
+  }
+};
+
 export const middlewareToken = (req, res, next) => {
   let { token } = req.headers;
 
