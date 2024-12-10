@@ -1,5 +1,7 @@
 import dotenv from "dotenv";
 import { PrismaClient } from "@prisma/client";
+import fs from "fs";
+import path from "path";
 
 dotenv.config();
 const prisma = new PrismaClient();
@@ -205,6 +207,11 @@ export const deleteImageById = async (req, res) => {
     });
   }
 
+  const imagePath = path.join(process.cwd(), "public", checkImage.duong_dan);
+  if (fs.existsSync(imagePath)) {
+    fs.unlinkSync(imagePath);
+  }
+
   const deleteImage = await prisma.hinh_anh.delete({
     where: {
       hinh_id: checkImage.hinh_id,
@@ -228,41 +235,36 @@ export const deleteImageById = async (req, res) => {
 
 // /them-anh-theo-id-nguoi-dung
 export const createImageByUserId = async (req, res) => {
-  const { ten_hinh, duong_dan, mo_ta, nguoi_dung_id } = req.body;
+  const file = req.file;
 
-  const checkUser = await prisma.nguoi_dung.findUnique({
-    where: {
-      nguoi_dung_id: Number(nguoi_dung_id),
-    },
-  });
-
-  if (!checkUser) {
-    return res.status(404).json({
-      message: "Người dùng không tồn tại",
-      statusCode: 404,
-      timestamp: new Date().toISOString(),
-    });
+  if (!file) {
+    return res.status(400).json({ error: "Không có file nào được tải lên!" });
   }
+
+  const relativePath = `/imgs/${file.filename}`;
 
   const createImage = await prisma.hinh_anh.create({
     data: {
-      ten_hinh,
-      duong_dan,
-      mo_ta,
-      nguoi_dung_id,
+      ten_hinh: req.body.ten_hinh,
+      mo_ta: req.body.mo_ta,
+      duong_dan: relativePath,
+      nguoi_dung_id: Number(req.body.nguoi_dung_id),
     },
   });
 
   if (!createImage) {
-    return res.status(400).json({
-      message: "Thêm hình ảnh không thành công",
-      statusCode: 400,
+    return res.status(500).json({
+      message: "Lỗi upload file!",
+      statusCode: 500,
       timestamp: new Date().toISOString(),
     });
   }
 
   return res.status(201).json({
-    message: "Thêm hình ảnh thành công",
+    message: "Thêm mới ảnh thành công",
+    content: {
+      data: createImage,
+    },
     statusCode: 201,
     timestamp: new Date().toISOString(),
   });

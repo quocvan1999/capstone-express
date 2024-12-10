@@ -10,6 +10,7 @@ import {
   createImageByUserId,
 } from "../controllers/imageController.js";
 import { middlewareToken } from "../config/jwt.js";
+import { middlewareUpload, upload } from "../config/upload.js";
 
 const imageRoutes = express.Router();
 
@@ -33,6 +34,7 @@ imageRoutes.delete(
 imageRoutes.post(
   "/them-anh-theo-id-nguoi-dung",
   middlewareToken,
+  middlewareUpload,
   tryCatch(createImageByUserId)
 );
 
