@@ -257,10 +257,17 @@ export const deleteImageById = async (req, res) => {
 // /them-anh-theo-id-nguoi-dung
 export const createImageByUserId = async (req, res) => {
   const file = req.file;
+  const { token } = req.headers;
 
   if (!file) {
     return res.status(400).json({ error: "Không có file nào được tải lên!" });
   }
+
+  if (!token) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
+  const infoData = verifyInfoToken(token);
 
   const relativePath = `/imgs/${file.filename}`;
 
@@ -269,7 +276,7 @@ export const createImageByUserId = async (req, res) => {
       ten_hinh: req.body.ten_hinh,
       mo_ta: req.body.mo_ta,
       duong_dan: relativePath,
-      nguoi_dung_id: Number(req.body.nguoi_dung_id),
+      nguoi_dung_id: Number(infoData.payload.userId),
     },
   });
 
