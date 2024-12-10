@@ -1,0 +1,357 @@
+{
+  "info": {
+    "_postman_id": "947a2035-5fdc-4732-ba0e-41c83a06eb42",
+    "name": "CAPSTONE EXPRESS ORM",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "7960264"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "/dang-nhap",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"lyquocvan1998@gmail.com\",\r\n    \"mat_khau\": \"123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/auth/dang-nhap",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["auth", "dang-nhap"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/dang-ky",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"lyquocvan1998@gmail.com\",\r\n    \"mat_khau\": \"123\",\r\n    \"ho_ten\": \"Van\",\r\n    \"tuoi\": 25,\r\n    \"anh_dai_dien\": \"1232\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/auth/dang-ky",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["auth", "dang-ky"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Image",
+      "item": [
+        {
+          "name": "/lay-danh-sach-hinh-anh-tim-kiem-phan-trang",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"page\": 1,\r\n    \"limit\": 10,\r\n    \"search\": \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/image/lay-danh-sach-hinh-anh-tim-kiem-phan-trang",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["image", "lay-danh-sach-hinh-anh-tim-kiem-phan-trang"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/lay-thong-tin-hinh-anh/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/image/lay-thong-tin-hinh-anh/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["image", "lay-thong-tin-hinh-anh", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/lay-danh-sach-binh-luan/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/image/lay-danh-sach-binh-luan/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["image", "lay-danh-sach-binh-luan", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/kiem-tra-luu-hinh-anh/:id",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJJZCI6MTMsImVtYWlsIjoibHlxdW9jdmFuMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNzMzNzk2OTgxLCJleHAiOjE3MzM4MDQxODF9.yWT1OeASQBE1mLT8E-U8-Co-MlHT3JJW96aBlSNZZMY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"hinh_id\": 9,\r\n    \"nguoi_dung_id\": 9\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/image/kiem-tra-luu-hinh-anh",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["image", "kiem-tra-luu-hinh-anh"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/them-binh-luan",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJJZCI6MTMsImVtYWlsIjoibHlxdW9jdmFuMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNzMzNzk2OTgxLCJleHAiOjE3MzM4MDQxODF9.yWT1OeASQBE1mLT8E-U8-Co-MlHT3JJW96aBlSNZZMY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nguoi_dung_id\":1,\r\n    \"hinh_id\":10,\r\n    \"noi_dung\": \"test\",\r\n    \"ngay_binh_luan\": \"2024-11-30T00:00:00.000Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/image/them-binh-luan",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["image", "them-binh-luan"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/xoa-anh-theo-id/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJJZCI6MTMsImVtYWlsIjoibHlxdW9jdmFuMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNzMzODIzNzU1LCJleHAiOjE3MzM4MzA5NTV9.wNeDQgQCzDF_Uqcpmwayaop-KqNOS5m4p0oCqp2M6q4",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/image/xoa-anh-theo-id/22",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["image", "xoa-anh-theo-id", "22"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/them-anh-theo-id-nguoi-dung",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJJZCI6MTMsImVtYWlsIjoibHlxdW9jdmFuMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNzMzODIzNzU1LCJleHAiOjE3MzM4MzA5NTV9.wNeDQgQCzDF_Uqcpmwayaop-KqNOS5m4p0oCqp2M6q4",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "/C:/Users/lyquo/OneDrive/Hình ảnh/logo-cyberlearn-small.png"
+                },
+                {
+                  "key": "ten_hinh",
+                  "value": "hinh test 10",
+                  "type": "text"
+                },
+                {
+                  "key": "mo_ta",
+                  "value": "hinh test 10",
+                  "type": "text"
+                },
+                {
+                  "key": "nguoi_dung_id",
+                  "value": "10",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/image/them-anh-theo-id-nguoi-dung",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["image", "them-anh-theo-id-nguoi-dung"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "/lay-thong-tin-nguoi-dung/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJJZCI6MTMsImVtYWlsIjoibHlxdW9jdmFuMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNzMzNzk2OTgxLCJleHAiOjE3MzM4MDQxODF9.yWT1OeASQBE1mLT8E-U8-Co-MlHT3JJW96aBlSNZZMY",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/user/lay-thong-tin-nguoi-dung/13",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["user", "lay-thong-tin-nguoi-dung", "13"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/lay-danh-sach-hinh-anh-theo-nguoi-dung-id/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJJZCI6MTMsImVtYWlsIjoibHlxdW9jdmFuMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNzMzNzk2OTgxLCJleHAiOjE3MzM4MDQxODF9.yWT1OeASQBE1mLT8E-U8-Co-MlHT3JJW96aBlSNZZMY",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/user/lay-danh-sach-hinh-anh-theo-nguoi-dung-id/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["user", "lay-danh-sach-hinh-anh-theo-nguoi-dung-id", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/lay-danh-sach-anh-da-luu-theo-nguoi-dung-id/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJJZCI6MTMsImVtYWlsIjoibHlxdW9jdmFuMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNzMzNzk2OTgxLCJleHAiOjE3MzM4MDQxODF9.yWT1OeASQBE1mLT8E-U8-Co-MlHT3JJW96aBlSNZZMY",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/user/lay-danh-sach-anh-da-luu-theo-nguoi-dung-id/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": [
+                "user",
+                "lay-danh-sach-anh-da-luu-theo-nguoi-dung-id",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/sua-thong-tin-nguoi-dung/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJJZCI6MTMsImVtYWlsIjoibHlxdW9jdmFuMTk5OEBnbWFpbC5jb20ifSwiaWF0IjoxNzMzNzk2OTgxLCJleHAiOjE3MzM4MDQxODF9.yWT1OeASQBE1mLT8E-U8-Co-MlHT3JJW96aBlSNZZMY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ho_ten\": \"Tran Van 10\",\r\n    \"tuoi\": 34,\r\n    \"anh_dai_dien\": \"avatar10.png\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/user/sua-thong-tin-nguoi-dung/10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["user", "sua-thong-tin-nguoi-dung", "10"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
