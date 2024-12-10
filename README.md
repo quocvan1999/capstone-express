@@ -1,6 +1,6 @@
 ## Nội dung file .env
 
-SECRET_KEY=node47
+SECRET_KEY=node47 <br>
 DATABASE_URL="mysql://root:123456@localhost:3307/capstone-express"
 
 ## Ghi chú
