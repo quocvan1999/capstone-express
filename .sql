@@ -53,16 +53,16 @@ VALUES
 -- Thêm dữ liệu vào bảng `hinh_anh`
 INSERT INTO hinh_anh (ten_hinh, duong_dan, mo_ta, nguoi_dung_id)
 VALUES
-('Hình 1', '/images/hinh1.jpg', 'Mô tả hình 1', 1),
-('Hình 2', '/images/hinh2.jpg', 'Mô tả hình 2', 2),
-('Hình 3', '/images/hinh3.jpg', 'Mô tả hình 3', 3),
-('Hình 4', '/images/hinh4.jpg', 'Mô tả hình 4', 4),
-('Hình 5', '/images/hinh5.jpg', 'Mô tả hình 5', 5),
-('Hình 6', '/images/hinh6.jpg', 'Mô tả hình 6', 6),
-('Hình 7', '/images/hinh7.jpg', 'Mô tả hình 7', 7),
-('Hình 8', '/images/hinh8.jpg', 'Mô tả hình 8', 8),
-('Hình 9', '/images/hinh9.jpg', 'Mô tả hình 9', 9),
-('Hình 10', '/images/hinh10.jpg', 'Mô tả hình 10', 10);
+('Hình 1', '/imgs/hinh1.jpg', 'Mô tả hình 1', 1),
+('Hình 2', '/imgs/hinh2.jpg', 'Mô tả hình 2', 2),
+('Hình 3', '/imgs/hinh3.jpg', 'Mô tả hình 3', 3),
+('Hình 4', '/imgs/hinh4.jpg', 'Mô tả hình 4', 4),
+('Hình 5', '/imgs/hinh5.jpg', 'Mô tả hình 5', 5),
+('Hình 6', '/imgs/hinh6.jpg', 'Mô tả hình 6', 6),
+('Hình 7', '/imgs/hinh7.jpg', 'Mô tả hình 7', 7),
+('Hình 8', '/imgs/hinh8.jpg', 'Mô tả hình 8', 8),
+('Hình 9', '/imgs/hinh9.jpg', 'Mô tả hình 9', 9),
+('Hình 10', '/imgs/hinh10.jpg', 'Mô tả hình 10', 10);
 
 
 -- Thêm dữ liệu vào bảng `binh_luan`
